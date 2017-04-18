@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var babel = require('gulp-babel');
 var connect = require('gulp-connect');
 var webpack = require('webpack-stream');
 var webpackConfig = require('./webpack.config.js');
@@ -9,6 +10,7 @@ gulp.task('build', ['js', 'scss', 'html'])
 gulp.task('js', function() {
   return gulp.src('src/js/app.js')
     .pipe(webpack(webpackConfig))
+    .pipe(babel({presets: ['babili']}))
     .pipe(gulp.dest('build/js/'))
 });
 
@@ -28,5 +30,6 @@ gulp.task('connect', function() {
     root: 'build'
   });
 });
+
 
 gulp.task('default', ['build']);
