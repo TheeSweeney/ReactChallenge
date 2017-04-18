@@ -19,9 +19,7 @@ let deleteItem = (index) => {
 };
 
 let checkItem = (index) => {
-  console.log(todoStore.items[index])
   todoStore.items[index].complete = true;
-  console.log(todoStore.items[index])
   ping()
 }
 
