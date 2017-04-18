@@ -7,7 +7,7 @@ class Todo extends React.Component {
     super(props);
     this.state = {
       todoInput: '',
-      todoItems: []
+      todoItems: [] 
     };
 
     this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -52,7 +52,7 @@ class Todo extends React.Component {
   render() {
     let todoItems = this.state.todoItems.map((todoItem, index) => {
       return (
-        <li className={'todo-items_item' + (todoItem.complete ? ' todo-items_item-complete' : '')} key={index}>
+        <li className={'todo-items_item' + (todoItem.complete ? ' atodo-items_item-complete' : '')} key={index}>
           <button onClick={() => this.handleCheck(index)} className="todo-items_check-btn">&#10004;</button>
           <button onClick={() => this.handleDelete(index)} className="todo-items_delete-btn">&#x2716;</button>
           <span className="todo-items_item-text">{todoItem.text}</span>

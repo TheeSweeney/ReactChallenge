@@ -1,11 +1,12 @@
-var gulp = require('gulp');
-var babel = require('gulp-babel');
-var connect = require('gulp-connect');
-var webpack = require('webpack-stream');
-var webpackConfig = require('./webpack.config.js');
-var sass = require('gulp-sass');
+var gulp = require('gulp'),
+  watch = require('gulp-watch'),
+  babel = require('gulp-babel'),
+  connect = require('gulp-connect'),
+  webpack = require('webpack-stream'),
+  webpackConfig = require('./webpack.config.js'),
+  sass = require('gulp-sass')
 
-gulp.task('build', ['js', 'scss', 'html'])
+gulp.task('build', ['js', 'scss', 'html', 'watch'])
 
 gulp.task('js', function() {
   return gulp.src('src/js/app.js')
@@ -29,6 +30,10 @@ gulp.task('connect', function() {
   connect.server({
     root: 'build'
   });
+});
+
+gulp.task('watch', function() {
+  gulp.watch('./*', ['build']) 
 });
 
 
