@@ -24,7 +24,7 @@ class Todo extends React.Component {
   }
 
   handleKeyDown(evt) {
-    if (evt.keyCode === 13) {
+    if (evt.keyCode === 13 && evt.currentTarget.value !== '') {
       dispatcher.emit('todo:user-added', this.state.todoInput);
       evt.currentTarget.value = '';
       this.setState({
