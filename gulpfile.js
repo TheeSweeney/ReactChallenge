@@ -11,7 +11,7 @@ gulp.task('build', ['js', 'scss', 'html', 'watch'])
 gulp.task('js', function() {
   return gulp.src('src/js/app.js')
     .pipe(webpack(webpackConfig))
-    .pipe(babel({presets: ['babili']}))
+    .pipe(babel({presets: ['babili']})) 
     .pipe(gulp.dest('build/js/'))
 });
 
@@ -33,7 +33,7 @@ gulp.task('connect', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./*', ['build']) 
+  gulp.watch('./src/**/*', ['build']) 
 });
 
 
